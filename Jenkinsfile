@@ -7,4 +7,18 @@ pipeline{
             }
         }
     }
+    post{
+        always{
+            echo "Done"
+        }
+        success{
+            echo "Sukses"
+        }
+        failure{
+            echo "Fail"
+        }
+        cleanup{
+            echo "Cleanup"
+        }
+    }
 }
