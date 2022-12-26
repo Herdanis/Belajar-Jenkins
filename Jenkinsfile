@@ -1,19 +1,22 @@
 pipeline{
     agent any
+    tools{
+        go "1.19.0"
+    }
     stages{
         stage("build"){
             steps{
-                echo("build")
+                sh "go build -o main"
             }
         }
         stage("test"){
             steps{
-                echo("test")
+                echo("go test")
             }
         }
         stage("deploy"){
             steps{
-                echo("deploy")
+                sh "./main"
             }
         }
     }
