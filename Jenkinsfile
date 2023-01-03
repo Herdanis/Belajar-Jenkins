@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage("build"){
             steps{
-                sh "go build -o main"
+                sh("go build -o main")
             }
         }
         stage("test"){
@@ -17,7 +17,7 @@ pipeline{
         }
         stage("deploy"){
             steps{
-                sh "./main"
+                sh("./main")
             }
         }
     }
