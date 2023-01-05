@@ -4,6 +4,12 @@ pipeline{
         go "go 1.19"
     }
     stages{
+        stage("prepare"){
+            steps{
+                echo("start job : ${env.JOB_NAME}")
+                echo("branch Name : ${env.JOB_BRANCH}")
+            }
+        }
         stage("build"){
             steps{
                 sh("go build -o main")
