@@ -22,6 +22,13 @@ pipeline{
         }
         stage("deploy"){
             steps{
+                script{
+                    def data = [
+                        "firstname" : "tes",
+                        "lastname" : "qwe"
+                    ]
+                    writeJSON(file: "data.json", json:data)
+                }
                 sh("./main")
             }
         }
