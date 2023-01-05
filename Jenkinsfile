@@ -12,7 +12,7 @@ pipeline{
         stage("test"){
             steps{
                 script{
-                    for (int i = 0; i <10; i) {
+                    for (int i = 0; i < 10; i) {
                         echo("Script ${i}")
                     }
                 }
