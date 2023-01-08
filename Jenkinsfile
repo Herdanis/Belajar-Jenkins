@@ -48,7 +48,7 @@ pipeline{
 		stage("release"){
 			when{
 				expression{
-					return param.DEPLOY
+					return params.DEPLOY
 				}
 			}
 			steps{
