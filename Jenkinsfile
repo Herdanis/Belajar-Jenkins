@@ -11,7 +11,7 @@ pipeline{
             steps{
                 echo("start job : ${env.JOB_NAME}")
                 echo("branch Name : ${env.JOB_BRANCH}")
-				echo("${APP}")
+				echo('${APP}')
             }
         }
         stage("build"){
