@@ -35,6 +35,7 @@ pipeline{
         }
         stage("deploy"){
 			input{
+				message "Can we Deploy"
 				ok "Deploy"
 			}         
 			steps{
@@ -53,9 +54,6 @@ pipeline{
 				expression{
 					return params.DEPLOY
 				}
-			}
-			input{
-				ok "Deploy"
 			}
 			steps{
 				echo("deployed")
