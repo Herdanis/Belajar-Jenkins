@@ -46,12 +46,12 @@ pipeline{
             }
         }
 		stage("release"){
-			steps{
-				when{
-					expression{
-						return param.DEPLOY
-					}
+			when{
+				expression{
+					return param.DEPLOY
 				}
+			}
+			steps{
 				echo("deployed")
 			}
 		}
