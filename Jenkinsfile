@@ -34,7 +34,10 @@ pipeline{
             }
         }
         stage("deploy"){
-            steps{
+			input{
+				ok "Deploy"
+			}         
+			steps{
                 script{
                     def data = [
                         "firstname" : "tes",
