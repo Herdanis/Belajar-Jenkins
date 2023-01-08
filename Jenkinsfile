@@ -3,6 +3,9 @@ pipeline{
     tools{
         go "go 1.19"
     }
+	parameters{
+		booleanParam(name:"DEPLOY",defaultValue:false,description:"Need to deploy")
+	}
     stages{
         stage("prepare"){
 			environment{
@@ -42,6 +45,16 @@ pipeline{
                 sh("./main")
             }
         }
+		stage("release"){
+			steps{
+				when{
+					expression{
+						return param.DEPLOY
+					}
+				}
+				echo("deployed")
+			}
+		}
     }
     post{
         always{
