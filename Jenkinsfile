@@ -5,9 +5,13 @@ pipeline{
     }
     stages{
         stage("prepare"){
+			environment{
+				APP = credentials("qwe")
+			}
             steps{
                 echo("start job : ${env.JOB_NAME}")
                 echo("branch Name : ${env.JOB_BRANCH}")
+				echo("${APP}")
             }
         }
         stage("build"){
