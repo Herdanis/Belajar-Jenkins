@@ -51,6 +51,9 @@ pipeline{
 					return params.DEPLOY
 				}
 			}
+			input{
+				ok "Deploy"
+			}
 			steps{
 				echo("deployed")
 			}
