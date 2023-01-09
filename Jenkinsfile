@@ -37,8 +37,13 @@ pipeline{
 			input{
 				message "Can we Deploy"
 				ok "Deploy"
-			}         
+			}
 			steps{
+				withCredentials([usernamePassword(
+					credentialsId: "gitlab",
+					usernameVariable: "name",
+					passwordVariable: "secret"
+				)])
                 script{
                     def data = [
                         "firstname" : "tes",
@@ -46,6 +51,7 @@ pipeline{
                     ]
                     writeJSON(file: "data.json", json:data)
                 }
+				sh('echo "user : $name pass : $secret"')
                 sh("./main")
             }
         }
