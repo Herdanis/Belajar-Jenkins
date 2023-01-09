@@ -39,11 +39,11 @@ pipeline{
 				ok "Deploy"
 			}
 			steps{
-				withCredentials([
+				withCredentials([userpassword(
 					credentialsId: "gitlab",
 					usernameVariable: "name",
 					passwordVariable: "secret"
-				]){
+				)]){
 					script{
 						def data = [
 							"firstname" : "tes",
