@@ -39,7 +39,7 @@ pipeline{
 				ok "Deploy"
 			}
 			steps{
-				withCredentials([userpassword(
+				withCredentials([usernamepassword(
 					credentialsId: "gitlab",
 					usernameVariable: "name",
 					passwordVariable: "secret"
