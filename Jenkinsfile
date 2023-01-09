@@ -39,20 +39,21 @@ pipeline{
 				ok "Deploy"
 			}
 			steps{
-				withCredentials([usernamePassword(
+				withCredentials([
 					credentialsId: "gitlab",
 					usernameVariable: "name",
 					passwordVariable: "secret"
-				)])
-                script{
-                    def data = [
-                        "firstname" : "tes",
-                        "lastname" : "qwe"
-                    ]
-                    writeJSON(file: "data.json", json:data)
-                }
-				sh('echo "user : $name pass : $secret"')
-                sh("./main")
+				]){
+					script{
+						def data = [
+							"firstname" : "tes",
+							"lastname" : "qwe"
+						]
+						writeJSON(file: "data.json", json:data)
+					}
+					sh('echo "user : $name pass : $secret"')
+					sh("./main")
+				}
             }
         }
 		stage("release"){
